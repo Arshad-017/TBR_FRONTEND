@@ -1,0 +1,67 @@
+<div class="back-ground">
+    <h1 class="remove-css">TBR Employees Details</h1>
+    
+
+   <div *ngIf="false" class="pagination" >
+    <div *ngFor="let emp of tbrEmployee;let i=index">
+        <span *ngIf="i==stPgIndex"><a (click)="reindexBackPagination(stPgIndex)">&laquo;</a></span>
+        <a *ngIf="i>=stPgIndex && i<=endPgIndex" (click)="pagination(i)">{{i}}</a>
+        <span *ngIf="i==endPgIndex"><a (click)="reindexNextPagination(endPgIndex)">&raquo;</a></span>
+    </div>
+       
+   </div>
+
+   <!--pagination st -->
+   <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end" *ngIf="setUpperLimit==1">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+    </ul>
+    <ul class="pagination justify-content-end" *ngIf="setUpperLimit==2">
+
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+
+
+    </ul>
+    <ul class="pagination justify-content-end" *ngIf="setUpperLimit==3">
+
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+    </ul>
+    <ul *ngIf="setUpperLimit>3" class="pagination justify-content-end">
+
+        <li class="page-item">
+            <a class="page-link" (click)="reindexBackPagination(stPgIndex)" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item" *ngFor="let emp of tbrEmployee;let i=index"><a *ngIf="i>=stPgIndex && i<=endPgIndex"
+                (click)="pagination(i)" class="page-link">{{i+1}}</a></li>
+        <li class="page-item">
+            <a class="page-link" (click)="reindexNextPagination(endPgIndex)">Next</a>
+        </li>
+    </ul>
+</nav>
+   <!--pagination end -->
+
+
+    <table id="customers">
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Job Title</th>
+        </tr>
+        <tbody>
+            <tr *ngFor="let emp of tbrEmployee;let i=index" >
+               
+                    <td *ngIf="i>=stIndex && i<endIndex">{{emp.emp_id}}</td>
+                    <td *ngIf="i>=stIndex && i<endIndex">{{emp.first_name}} {{emp.last_name}}</td>
+                    <td *ngIf="i>=stIndex && i<endIndex">{{emp.age}}</td>
+                    <td *ngIf="i>=stIndex && i<endIndex">{{emp.job_title}}</td>
+               
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</div>

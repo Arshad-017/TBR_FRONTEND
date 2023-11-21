@@ -1,0 +1,67 @@
+<form [formGroup]="updateForm" class="form-inline">
+    
+    <div class="grid-container1">
+        <div class="item1">
+            <img *ngIf="oneOnjData.gender==MALE" src="../../../../assets/EmployeeMale.png" class="sizing-image"
+                alt="Male SVG">
+            <img *ngIf="oneOnjData.gender==FEMALE" src="../../../../assets/EmployeeFemale.png" class="sizing-image"
+                alt="Male SVG">
+        </div>
+        <div class="item ">
+            <p *ngIf="updateSuccessMessage" class="updateSuccessMessage">
+                {{updateSuccessMessage}}
+            </p>
+            Employee Number :<input type="text" formControlName="emp_id" class="form-control item-disable">
+            Firstname : <input type="text" formControlName="first_name" class="form-control item-enable">
+            Lastname : <input type="text" formControlName="last_name" class="form-control item-enable">
+            Email Id : <input type="text" formControlName="email" class="form-control item-enable">
+            Phone Number :<input type="text" formControlName="phone" class="form-control item-enable">
+            Experience : <input type="text" formControlName="years_of_experience" class="form-control item-enable">
+            years
+            Gender : <input type="text" formControlName="gender" class="form-control item-disable">
+
+        </div>
+        <div class="item3">
+
+            Job Title :<input type="text" formControlName="job_title" class="form-control item-enable">
+            Salary in ($): <input type="text" formControlName="salary" class="form-control item-enable">
+            Unit : <input type="text" formControlName="department" class="form-control item-enable">
+
+        </div>
+        <div class="item4">
+            <table>
+                <tr>
+                    <td>Projects Worked On
+                        <ol style="margin-left: 20px">
+                            <li>
+                                GBR Mig
+                            </li>
+                            <li>
+                                FCT Angualar
+                            </li>
+                        </ol>
+                    </td>
+                    <td class="align-left-btn">
+                        <input *ngIf="!isHideBtton" type="button" style="width:50em;
+                                                 height:3em;
+                                                 margin-right:1em" class="btn btn-info" value="Update"
+                            (click)="updateEmployee()">
+                        <input *ngIf="isHideBtton" type="button" style="width:50em;
+                            height:3em;
+                            margin-right:1em" class="btn btn-info" value="Back to Home Page" (click)="backtoHomePage()">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="align-left-btn">
+                        <input *ngIf="!isHideBtton" type="button"  style="width:50em;
+                                                 height:3em;
+                                                 margin-right:1em" class="btn btn-info" value="Back To Home Page"
+                            (click)="backtoHomePage()">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</form>

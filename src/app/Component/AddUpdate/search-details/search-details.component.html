@@ -1,0 +1,65 @@
+<div class="grid-container">
+    <div class="item1">
+        <img *ngIf="oneOnjData.gender==MALE" src="../../../../assets/EmployeeMale.png" class="sizing-image"
+            alt="Male SVG">
+        <img *ngIf="oneOnjData.gender==FEMALE" src="../../../../assets/EmployeeFemale.png" class="sizing-image"
+            alt="Male SVG">
+    </div>
+    <div class="item">
+        <table>
+            <tr>
+                <td>Employee Number : {{oneOnjData.emp_id}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Firstname : {{oneOnjData.first_name}}</td>
+                <td>Lastname : {{oneOnjData.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Email Id : {{oneOnjData.email}}</td>
+                <td>Phone Number : {{oneOnjData.phone }}</td>
+            </tr>
+            <tr>
+                <td>Experience : {{oneOnjData.years_of_experience}} years</td>
+                <td>Gender : {{oneOnjData.gender }}</td>
+            </tr>
+        </table>
+
+
+    </div>
+    <div class="item3">
+        <table>
+            <tr>Job Title : {{oneOnjData.job_title }}</tr>
+            <tr>
+                <td>
+                    Salary : {{oneOnjData.salary | currency}}
+                </td>
+                <td>
+                    Unit : {{oneOnjData.department}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="item4">
+        <table>
+            <tr  >
+                <td >Projects Worked On
+                   <ol style="margin-left: 20px">
+                    <li>
+                        GBR Mig
+                    </li>
+                    <li>
+                        FCT Angualar
+                    </li>
+                   </ol>
+                </td>
+                <td class="align-left-btn">
+                    <input type="button"  style="width:50em;
+                                                 height:3em;
+                                                 margin-right:1em" class="btn btn-primary" value="OK" (click)="backtoHomePage()">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

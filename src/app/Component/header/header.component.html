@@ -1,0 +1,22 @@
+<header class="header color-tab">
+    <img src="../../../assets/discord.png" class="sizing" alt="">
+    <nav class="nav-items color-tab">
+      <a [routerLink]="['/home']"  class="ex1" routerLinkActive="active">
+        <img src="../../../assets/Home.png" class="sizing1" alt="">
+        Home</a>
+      <a [routerLink]="['/about']" class="ex1" routerLinkActive="active">
+        <img src="../../../assets/about1.png" class="sizing1" alt="">
+        About</a>
+      <a [routerLink]="['/contact']" class="ex1" routerLinkActive="active">
+        <img src="../../../assets/contact.png" class="sizing1" alt="">
+        Contact</a>
+      <a [routerLink]="['/addUpadte']" class="ex1" routerLinkActive="active">
+        <img src="../../../assets/database.png" class="sizing1" alt="">
+        Data Manager</a>
+        <img *ngIf="checkGender==MALE" class="sizing12" src="../../../assets/male_auth.png" alt="male">
+        <img *ngIf="checkGender==FEMALE"  class="sizing12" src="../../../assets/female_auth.png" alt="female"><span style="font-size: small;color:  #5ef08a;;
+        ">
+          {{userLoginName}}</span>
+       &nbsp; &nbsp; &nbsp; &nbsp;<button class="btn btn-info shadowButton" (click)="logout()">Log-Out</button>
+    </nav>
+</header>

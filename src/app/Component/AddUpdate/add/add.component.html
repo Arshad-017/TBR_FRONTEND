@@ -1,0 +1,130 @@
+<div  class="allign-center1">
+
+
+  <div class="background">
+    <span class="container">
+      <div class="title" >Add Employee</div>
+    </span>
+    <div class="content">
+      <form [formGroup]="addTbrEmpolyeeForm" (ngSubmit)="addEmployee()">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">First-Name</span>
+            <input type="search" placeholder="Enter your first-name" formControlName="first_name" >
+            <p class="p-validation" *ngIf="( addTbrEmpolyeeForm.get('first_name')?.hasError('required') &&
+                        addTbrEmpolyeeForm.get('first_name')?.touched ) || error_first_name ">
+              This First-Name is Mandantory!.
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Last-Name</span>
+            <input type="search" placeholder="Enter your last-name" formControlName="last_name">
+            <p class="p-validation" *ngIf="( addTbrEmpolyeeForm.get('last_name')?.hasError('required') &&
+                        addTbrEmpolyeeForm.get('last_name')?.touched ) ||  error_last_name ">
+              This Last-Name is Mandantory!.
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Email</span>
+            <input type="email" placeholder="Enter your email" formControlName="email">
+            <p class="p-validation" *ngIf="( addTbrEmpolyeeForm.get('email')?.hasError('required') &&
+                        addTbrEmpolyeeForm.get('email')?.touched ) || error_email">
+              This Email is Mandantory!.
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Phone Number</span>
+            <input type="text" placeholder="Enter your phone number" formControlName="phone">
+            <p class="p-validation" *ngIf="( addTbrEmpolyeeForm.get('phone')?.hasError('required') &&
+                        addTbrEmpolyeeForm.get('phone')?.touched ) ||  error_phone">
+              This Phone Number is Mandantory!.
+            </p>
+            <p class="p-validation" *ngIf="addTbrEmpolyeeForm.get('phone')?.value.length!=10 && 
+                                             addTbrEmpolyeeForm.get('phone')?.value.length>0
+                        ">
+
+              Phone Number should have 10 digits.
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Age</span>
+            <input type="number" placeholder="Enter your age" formControlName="age">
+            <p class="p-validation" *ngIf="( addTbrEmpolyeeForm.get('age')?.hasError('required') &&
+                        addTbrEmpolyeeForm.get('age')?.touched ) || error_age">
+              This Age is Mandantory!
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Job Title</span>
+            <input type="text" placeholder="Enter your Job Titile" formControlName="job_title">
+
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Salary</span>
+            <input type="number" placeholder="Enter your salary" formControlName="salary">
+            <p class="p-validation" *ngIf="( addTbrEmpolyeeForm.get('salary')?.hasError('required') &&
+                        addTbrEmpolyeeForm.get('salary')?.touched ) || error_salary">
+              This Salary is Mandantory!
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Department</span>
+            <input type="text" placeholder="Enter your Department" formControlName="department">
+            <p class="p-validation" *ngIf="( addTbrEmpolyeeForm.get('department')?.hasError('required') &&
+                        addTbrEmpolyeeForm.get('department')?.touched ) || error_department">
+              This Department Field is Mandantory!
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Years of Experirence</span>
+            <input type="number" placeholder="Enter your Department" formControlName="years_of_experience">
+            <p class="p-validation" *ngIf="( addTbrEmpolyeeForm.get('years_of_experience')?.hasError('required') &&
+                        addTbrEmpolyeeForm.get('years_of_experience')?.touched ) || error_years_of_experience">
+              This Department Field is Mandantory!
+            </p>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" value="male" formControlName="gender">
+          <input type="radio" name="gender" id="dot-2" value="female" formControlName="gender">
+          <input type="radio" name="gender" id="dot-3" value="NA" formControlName="gender">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="button">
+           <span *ngIf="voidShowDisplay">
+            <input type="button" value="Ok" (click)="BackToMainPage()"
+            >
+           </span>
+           <span *ngIf="!voidShowDisplay">
+            <input type="submit" value="Add Employee">
+           </span>
+            
+        
+        </div>
+      </form>
+    </div>
+    <div *ngIf="voidShowDisplay" class="content">
+      <div class="user-details">
+          <div class="input-box" style="margin-left: 35%;
+                                        color:#5ef08a;">
+            <h2>{{ respData }}</h2>
+          </div>  
+
+    </div>
+  </div>
+</div>

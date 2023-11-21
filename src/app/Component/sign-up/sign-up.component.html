@@ -1,0 +1,102 @@
+<div class="allign-center">
+  
+
+  <div class="container" >
+    <div class="title">Registration</div>
+    <div class="content">
+      <form [formGroup]="registerForm" (ngSubmit)="Register()" >
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Full Name</span>
+            <input type="search" placeholder="Enter your name" formControlName="fullName">
+            <p class="p-validation" *ngIf="registerForm.controls['fullName'].errors?.['required'] &&
+                      registerForm.get('fullName')?.touched">
+                       This Fullname is Mandantory!
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Nickname</span>
+            <input type="search" placeholder="Enter your username" formControlName="userName">
+            <p class="p-validation" *ngIf="registerForm.get('userName')?.hasError('required') &&
+                      registerForm.get('userName')?.touched">
+                       This Username is Mandantory!
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Email</span>
+            <input type="email" placeholder="Enter your email" formControlName="emailId">
+            <p class="p-validation" *ngIf="registerForm.get('emailId')?.hasError('required') &&
+                      registerForm.get('emailId')?.touched">
+                       This Email Id is Mandantory!
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Phone Number</span>
+            <input type="text" placeholder="Enter your number" formControlName="phoneNumber">
+            <p class="p-validation" *ngIf="registerForm.get('phoneNumber')?.hasError('required') &&
+                      registerForm.get('phoneNumber')?.touched">
+                       This Phone Number is Mandantory!.
+            </p>
+            <p class="p-validation" *ngIf="registerForm.get('phoneNumber')?.value.length!=10 && 
+                                           registerForm.get('phoneNumber')?.value.length>0
+                      ">
+                       
+                       Phone Number should have 10 digits.
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Password</span>
+            <input type="password" placeholder="Enter your password"  formControlName="password">
+            <p class="p-validation" *ngIf="registerForm.get('password')?.hasError('required') &&
+                      registerForm.get('password')?.touched">
+                       This Password is Mandantory!
+            </p>
+          </div>
+          <div class="input-box">
+            <span class="details" class="span-validation-for-bold">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password"  formControlName="confirmPassword">
+            <p class="p-validation" *ngIf="registerForm.get('confirmPassword')?.hasError('required') &&
+                      registerForm.get('confirmPassword')?.touched">
+                       This Password is Mandantory!
+            </p>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" value="male" formControlName="gender" selected>
+          <input type="radio" name="gender" id="dot-2" value="female" formControlName="gender">
+          <input type="radio" name="gender" id="dot-3" value="NA" formControlName="gender">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="gender">Prefer not to say</span>
+              </label>
+          </div>
+        </div>
+        <b>
+          <p *ngIf="passwordMismatch" style="margin-left: 25%;
+                                           color: crimson;
+                                           font-family: 'Courier New', Courier, monospace;">
+                       Password haven't match..Please try Again 
+            </p>
+        </b>
+        <div class="button">
+          
+          <input type="submit" value="Register" > <br> <br>
+          <input type="button" value="Go Back to Log-In Page" (click)="backToLoginPage()">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+</div>

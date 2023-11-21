@@ -1,0 +1,42 @@
+
+
+    
+<div class="center-div">
+  <form [formGroup]="loginForm" (ngSubmit)="AuthenticateUser()">
+    <img  class="allign-main-logo" src="../../../assets/discord.png" alt="Azure Synapse Tool" width="80" height="80">
+    <h1 class="h3 mb-3 fw-normal">Please sign in to...</h1>
+
+    <div class="form-group">
+      <label for="floatingInput">Username</label>
+      <input type="email" class="form-control"  formControlName="emailId">
+      
+    </div> <br>
+    <div class="form-group">
+      <label for="floatingPassword">Password</label>
+      <input type="password" class="form-control"  formControlName="password">
+      
+    </div> <br>
+
+    <div class="form-check text-start my-3">
+      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Remember me
+      </label>
+    </div>
+    <div  class="validation-login">
+      <span *ngIf="loginForm.get('emailId')?.touched && loginForm.get('emailId')?.hasError('required')">
+        <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+          Username or Password Cannot be Empty
+        </p>
+        
+      </span>
+      <p *ngIf="!Authen && hittedReqForLogin">
+        Invalid Username or Password Entered Please try again
+      </p>
+      </div> <br>
+    <pre><button class="btn btn-primary width-btn" type="submit">Login</button>  <button class="btn btn-primary width-btn" (click)="redirectTosignUp()" >Sign up</button>
+    </pre>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2022–2023</p>
+  </form>
+</div>
+

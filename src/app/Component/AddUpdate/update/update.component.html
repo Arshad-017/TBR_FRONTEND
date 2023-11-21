@@ -1,0 +1,60 @@
+<div class="allign-center1">
+
+
+  <div class="container">
+    <div class="title">Update Employee</div>
+    <div class="content">
+      <form [formGroup]="updateForm" (ngSubmit)="updateData()">
+
+        <div class="user-details">
+          <div class="form-group form-inline margin-inner">
+            <label for=""></label>
+            <select formControlName="prefixFirstName" >
+              <option>Start with</option>
+              <option>Contains</option>
+              <option>Exact Match</option>
+            </select> &nbsp;
+            Firstname: <input type="text" formControlName="first_name">
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <label for=""></label>
+            <select formControlName="prefixLastName">
+              <option>Start with</option>
+              <option>Contains</option>
+              <option>Exact Match</option>
+            </select> &nbsp;
+            Lirstname: <input type="text" formControlName="last_name">
+
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+            EmailId : <input type="email" formControlName="email">
+            
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            Employee ID : <input type="text" formControlName="emp_id">
+            <br>
+            <br>
+          
+            <input type="submit" value="Search" class="btn btn-primary" style="margin-left:15.5%;">
+            <input type="button" value="Reset" class="btn btn-primary" style="margin-left: 5%;" (click)="resetForm()">
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+</div>

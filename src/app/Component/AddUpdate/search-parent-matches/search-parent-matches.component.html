@@ -1,0 +1,46 @@
+
+
+
+<div *ngIf="!showParentMatchesDiv" class="container">
+    <div class="items1"> <img class="image-css" src="../../../../assets/nodatafound.jpeg" alt=""></div>
+    <div class="items2"> <h2>  Opps !!! No Data Found in TBR DataBase......</h2>
+        <input type="button" class="btn btn-info" style="margin-top: 8em;
+                                    margin-left: 3em;
+                                    width: 400px;
+                                    font-family: 'Courier New', Courier, monospace;" value="Back To Search Page" (click)="backToSearchPage()">
+    </div>
+
+</div>
+
+<div class="grid-container" *ngFor="let data of searchRespData;">
+
+    <div class="grid-item">
+        <img *ngIf="data.gender==MALE" class="image-male" src="../../../../assets/EmployeeMale.png" alt="TBRemployee">
+        <img *ngIf="data.gender==FEMALE" class="image-female" src="../../../../assets/EmployeeFemale.png"
+            alt="TBRemployee">
+    </div>
+    <div class="grid-item">
+        <table>
+            <tr>
+                <td>Firstname : {{data.first_name  }}</td>
+                <td>Lastname : {{data.last_name  }}</td>
+            </tr>
+            <tr>
+                <td>Role : {{data.job_title  }}</td>
+                <td>Experience : {{data.years_of_experience }} years</td>
+            </tr>
+            <tr>
+               <td> Unit : {{data.department  }}</td>
+               <td>
+                <input  type="button" class="btn btn-info" value="Select" (click)="showDetails(data.emp_id)">
+               
+               </td>
+            </tr>
+
+
+        </table>
+
+    </div>
+</div>
+
+

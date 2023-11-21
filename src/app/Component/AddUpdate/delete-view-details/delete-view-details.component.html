@@ -1,0 +1,104 @@
+<div class="grid-container">
+    <div class="item1">
+        <img *ngIf="oneOnjData.gender==MALE" src="../../../../assets/EmployeeMale.png" class="sizing-image"
+            alt="Male SVG">
+        <img *ngIf="oneOnjData.gender==FEMALE" src="../../../../assets/EmployeeFemale.png" class="sizing-image"
+            alt="Male SVG">
+    </div>
+    <div class="item">
+        <table>
+            <tr>
+                <h5 class="font-class">{{successMessage}}</h5>
+            </tr>
+            <tr>
+                <td>Employee Number : {{oneOnjData.emp_id}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Firstname : {{oneOnjData.first_name}}</td>
+                <td>Lastname : {{oneOnjData.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Email Id : {{oneOnjData.email}}</td>
+                <td>Phone Number : {{oneOnjData.phone }}</td>
+            </tr>
+            <tr>
+                <td>Experience : {{oneOnjData.years_of_experience}} years</td>
+                <td>Gender : {{oneOnjData.gender }}</td>
+            </tr>
+        </table>
+
+
+    </div>
+    <div class="item3">
+        <table>
+            <tr>Job Title : {{oneOnjData.job_title }}</tr>
+            <tr>
+                <td>
+                    Salary : {{oneOnjData.salary | currency}}
+                </td>
+                <td>
+                    Unit : {{oneOnjData.department}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="item4">
+        <table>
+            <tr >
+                <td >Projects Worked On
+                   <ol style="margin-left: 20px">
+                    <li>
+                        GBR Mig
+                    </li>
+                    <li>
+                        FCT Angualar
+                    </li>
+                   </ol>
+                </td>
+                <td>
+                    <div *ngIf="!disableValue" class="form-outline w-100">
+                        <label class="form-label" for="textAreaExample">Comments : </label>
+                        <textarea class="form-control" id="textAreaExample" rows="2" [(ngModel)]="comments" 
+                          style="background: #fff;"></textarea>
+                        
+                      </div>
+                      <div *ngIf="disableValue" class="form-outline w-100">
+                        <label class="form-label" for="textAreaExample">Comments : </label>
+                        <textarea class="form-control" id="textAreaExample" rows="2" [(ngModel)]="comments"  disabled="true"
+                          style="background: #dad0d0;"></textarea>
+                        
+                      </div>
+                      
+
+                </td>
+                
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div *ngIf="errorCommentMessage" class="alert alert-danger">
+                        <p >
+                            Comments are Mandantory while delteting record...
+                        </p>
+                  </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td class="align-left-btn">
+                <input *ngIf="!successMessage" type="button"  style="width:50em;
+                                             height:3em;
+                                             margin-right:1em;
+                                             margin-top: 10px;" class="btn btn-primary" value="Delete" (click)="delete()">
+                <input *ngIf="successMessage" type="button"  style="width:50em;
+                                             height:3em;
+                                             margin-right:1em;
+                                             margin-top: 10px;" class="btn btn-primary" value="Ok" (click)="backtoHomePage()">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div style="background-color: #302f49;min-height: 455px;">
+    <div class="container">
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <div *ngIf="!isSubmitted">
+                <form  [formGroup]="contactForm1" (ngSubmit)="callContactHelp()">
+                    <label for="name">Name:</label>
+                    <input type="text" formControlName="fullname">
+                    <p class="alert alert-danger" *ngIf="nameMandantory">
+                        This Field is Mandantory!!! 
+                    </p>
+                    <label for="email">Email:</label>
+                    <input type="email" formControlName="email">
+                    <p class="alert alert-danger" *ngIf="emailMandantory">
+                        This Field is Mandantory!!! 
+                    </p>
+                    <label for="message">Message:</label>
+                    <textarea  rows="4" formControlName="message"></textarea>
+                    <p class="alert alert-danger" *ngIf="MessageMandantory">
+                        This Field is Mandantory!!! {{userLoggedIn.fullName}}
+                    </p>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div *ngIf="isSubmitted" >
+                    <h4>{{respMessage}}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

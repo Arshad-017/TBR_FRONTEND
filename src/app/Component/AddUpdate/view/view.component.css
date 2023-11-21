@@ -1,0 +1,62 @@
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 18px;
+  }
+  
+  #customers tr:nth-child(even){background: #71b7e6;}
+  
+  #customers tr:hover {background-color: #5ef08a;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #5ef08a;
+    color: black;
+  }
+
+
+  .back-ground{
+    background : linear-gradient(135deg, #71b7e6, #9b59b6);
+  }
+
+
+
+  /* Pagination links */
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  background-color: #9b59b6;
+  
+}
+.pagination{
+  margin-right: 200px;
+}
+
+.pagination a :hover{
+  background-color: #5ef08a;
+}
+/* Style the active/current link */
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background: linear-gradient(135deg, #71b7e6, #9b59b6)}
+
+
+.remove-css{
+  margin: -10px 0
+}
+  
