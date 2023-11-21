@@ -33,8 +33,13 @@ export class SignUpComponent {
     
     if(this.AuthencateValidation()){
       this.regService.registerData(this.registerForm.value).subscribe(data=>{
-        this.respData = data.message;
-        this.router.navigate(['login']);
+        if(data.repeated == "true"){
+          this.respData = data.message;
+        }else{
+          this.respData = data.message;
+          this.router.navigate(['login']);
+        }
+        
       })
     }
 }

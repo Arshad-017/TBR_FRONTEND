@@ -1,15 +1,14 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViewService } from 'src/app/Service/AddUpdate/view.service';
-
 
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.css']
 })
-export class ViewComponent {
+export class ViewComponent  implements OnInit{
 
 
   tbrEmployeeWholeData!:any;
@@ -24,9 +23,12 @@ export class ViewComponent {
   setUpperLimit:number=0;
   
   constructor(private service : ViewService , private router : Router){
+    
+  }
+  ngOnInit() {
     this.service.getDataForViewComponent().subscribe(data=>{
     
-      this.tbrEmployee = data;
+      this.tbrEmployee = data.data;
       this.totalRecords = this.tbrEmployee.length;
       let temp1 = this.totalRecords % 10;
       if (temp1 == 0) {
@@ -87,9 +89,7 @@ validateLimit(pos:number):boolean{
 
 
   
-  ngOnInIt(){
-    
-  }
+  
 
 
 }

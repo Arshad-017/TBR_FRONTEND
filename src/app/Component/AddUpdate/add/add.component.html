@@ -7,6 +7,10 @@
     </span>
     <div class="content">
       <form [formGroup]="addTbrEmpolyeeForm" (ngSubmit)="addEmployee()">
+
+        <div>
+          <p *ngIf="repeatedError" style="color: red;font-size: 19px;text-align: center;" >{{respData}}</p>
+        </div>
         <div class="user-details">
           <div class="input-box">
             <span class="details" class="span-validation-for-bold">First-Name</span>

@@ -54,6 +54,7 @@ export class ContactComponent implements OnInit {
    }
   callContactHelp(){
     if(this.Authenticate())
+    console.log(this.contactForm1.value)
     this.contactUs.contactUs(this.contactForm1.value).subscribe(data=>{
       this.respMessage = data.message;
       this.isSubmitted=true;

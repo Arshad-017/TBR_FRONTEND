@@ -15,7 +15,7 @@ export class UpdateParentMatchesComponent implements OnInit{
   FEMALE: string = 'female'
   searchReq!: any;
   totalRecords: number = -1;
-  showParentMatchesDiv!: boolean ;
+  showParentMatchesDiv: number = 0;
   searchRespData!: any
   isUpdateFlow: boolean = false;
   updateFlow: any = "";
@@ -26,6 +26,7 @@ export class UpdateParentMatchesComponent implements OnInit{
 
   }
    ngOnInit() {
+    this.showParentMatchesDiv=0
     this.searchReq = sessionStorage.getItem("updateForm");
     this.searchReq = JSON.parse(this.searchReq);
     //this.searchReq = await this.sharedService.getRequestDataInSession();
@@ -33,10 +34,10 @@ export class UpdateParentMatchesComponent implements OnInit{
       this.searchRespData = data.data;
       this.totalRecords = data.records_count;
       if (this.totalRecords >= 1) {
-        this.showParentMatchesDiv = true
+        this.showParentMatchesDiv = 1
 
       } else {
-        this.showParentMatchesDiv = false;
+        this.showParentMatchesDiv = -1
       }
       
     });

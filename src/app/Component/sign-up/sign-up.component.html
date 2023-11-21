@@ -5,6 +5,9 @@
     <div class="title">Registration</div>
     <div class="content">
       <form [formGroup]="registerForm" (ngSubmit)="Register()" >
+        <div>
+          <p *ngIf="respData" style="color: red;font-size: 19px;text-align: center;">{{ respData }}</p>
+        </div>
         <div class="user-details">
           <div class="input-box">
             <span class="details" class="span-validation-for-bold">Full Name</span>

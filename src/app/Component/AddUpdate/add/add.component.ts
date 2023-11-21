@@ -10,6 +10,7 @@ import { AddDataService } from 'src/app/Service/AddUpdate/add-data.service';
 export class AddComponent implements OnInit {
   addTbrEmpolyeeForm!: FormGroup;
   respData!: string;
+  repeatedError!:boolean;
   voidShowDisplay: boolean = false;
   error_first_name: boolean = false;
   error_last_name: boolean = false;
@@ -58,29 +59,36 @@ export class AddComponent implements OnInit {
     this.respData = '';
   }
   addEmployee() {
+    this.repeatedError=false;
     if (this.AuthencateValidation()) {
       this.addDataService
         .addDataToDB(this.addTbrEmpolyeeForm.value)
         .subscribe((data) => {
           this.respData = data.message;
-          if (
-            this.respData != null &&
-            this.respData.endsWith('Added Successfully !!')
-          ) {
-            this.voidShowDisplay = true;
-            this.addTbrEmpolyeeForm.controls['first_name'].disable();
-            this.addTbrEmpolyeeForm.controls['last_name'].disable();
-            this.addTbrEmpolyeeForm.controls['email'].disable();
-            this.addTbrEmpolyeeForm.controls['phone'].disable();
-            this.addTbrEmpolyeeForm.controls['age'].disable();
-            this.addTbrEmpolyeeForm.controls['gender'].disable();
-            this.addTbrEmpolyeeForm.controls['job_title'].disable();
-            this.addTbrEmpolyeeForm.controls['years_of_experience'].disable();
-            this.addTbrEmpolyeeForm.controls['salary'].disable();
-            this.addTbrEmpolyeeForm.controls['department'].disable();
-            this.addTbrEmpolyeeForm.controls['emp_id'].disable();
-          } else {
-            this.voidShowDisplay = false;
+          if(data.repeated ==  "true"){
+               this.respData = data.message;
+               this.repeatedError = true;
+          }else
+          {
+            if (
+              this.respData != null &&
+              this.respData.endsWith('Added Successfully !!')
+            ) {
+              this.voidShowDisplay = true;
+              this.addTbrEmpolyeeForm.controls['first_name'].disable();
+              this.addTbrEmpolyeeForm.controls['last_name'].disable();
+              this.addTbrEmpolyeeForm.controls['email'].disable();
+              this.addTbrEmpolyeeForm.controls['phone'].disable();
+              this.addTbrEmpolyeeForm.controls['age'].disable();
+              this.addTbrEmpolyeeForm.controls['gender'].disable();
+              this.addTbrEmpolyeeForm.controls['job_title'].disable();
+              this.addTbrEmpolyeeForm.controls['years_of_experience'].disable();
+              this.addTbrEmpolyeeForm.controls['salary'].disable();
+              this.addTbrEmpolyeeForm.controls['department'].disable();
+              this.addTbrEmpolyeeForm.controls['emp_id'].disable();
+            } else {
+              this.voidShowDisplay = false;
+            }
           }
         });
     }
