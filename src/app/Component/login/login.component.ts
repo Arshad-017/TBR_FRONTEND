@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
           if(sessionStorage.getItem('token')=="" || sessionStorage.getItem('token')==null){
               sessionStorage.clear();
               sessionStorage.setItem('token' , 'true');
-              sessionStorage.setItem("username" ,data.data.fullName);
+              //console.log(data.data[0].fullName)
+              sessionStorage.setItem("username" ,data.data[0].fullName);
               sessionStorage.setItem("userLoginDetails" , JSON.stringify(data.data[0]));
           }
           this.router.navigate(['/home']);

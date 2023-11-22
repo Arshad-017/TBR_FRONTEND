@@ -16,4 +16,8 @@ export class ViewService {
     
     return this.http.get(`${this.domain}/view`);
   }
+
+  getDataForArchiveViewComponent():Observable<any>{
+    return this.http.get(`${this.domain}/archiveView`);
+  }
 }

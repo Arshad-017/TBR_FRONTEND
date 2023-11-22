@@ -21,10 +21,11 @@ import { DeleteParentMatchesComponent } from './Component/AddUpdate/delete-paren
 import { DeleteViewDetailsComponent } from './Component/AddUpdate/delete-view-details/delete-view-details.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { TestheaderComponent } from './testheader/testheader.component';
+import { ViewArchiveComponent } from './Component/AddUpdate/view-archive/view-archive.component';
 
 
 const routes: Routes = [
-  
+  {path: 'test' , component : TestheaderComponent },
   {path: 'login' , component : LoginComponent },
   {path: 'home' , component : HomeComponent , canActivate:[LoginGuardGuard]},
   {path: 'signup' , component : SignUpComponent  },
@@ -35,7 +36,8 @@ const routes: Routes = [
   children: [
     { path: '', component: SearchComponent },
     { path: 'search', component: SearchComponent },
-    { path: 'view', component:  ViewComponent},
+    { path: 'view', component:  ViewComponent}, 
+    { path: 'archiveView', component:  ViewArchiveComponent},
     { path: 'add', component:  AddComponent},
     { path: 'update', component:  UpdateComponent},
     { path: 'searchParentMatches', component:  SearchParentMatchesComponent},

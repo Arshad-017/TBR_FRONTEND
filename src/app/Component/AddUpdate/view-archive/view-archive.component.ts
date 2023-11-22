@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { ViewService } from 'src/app/Service/AddUpdate/view.service';
 
 @Component({
-  selector: 'app-view',
-  templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css'],
+  selector: 'app-view-archive',
+  templateUrl: './view-archive.component.html',
+  styleUrls: ['./view-archive.component.css']
 })
-export class ViewComponent implements OnInit {
+export class ViewArchiveComponent implements OnInit{
   tbrEmployeeWholeData!: any;
   tbrEmployee!: any;
   stIndex: number = 0;
@@ -23,19 +23,18 @@ export class ViewComponent implements OnInit {
   emptest!: string;
   clicked: boolean = true;
   showViewMatchesDiv!:boolean;
-
   constructor(private service: ViewService, private router: Router) {}
   ngOnInit() {
     //this.showId=false;
-    this.service.getDataForViewComponent().subscribe((data) => {
+    this.service.getDataForArchiveViewComponent().subscribe((data) => {
       this.tbrEmployee = data.data;
       this.totalRecords = this.tbrEmployee.length;
-      if(data.records_count > 0){
+      let temp1 = this.totalRecords % 10;
+      if(data.records_count>0){
         this.showViewMatchesDiv=true;
       }else{
         this.showViewMatchesDiv=false;
       }
-      let temp1 = this.totalRecords % 10;
       if (temp1 == 0) {
         this.setUpperLimit = this.totalRecords / 10 - 1;
       } else {
@@ -84,5 +83,7 @@ export class ViewComponent implements OnInit {
     }
 
     return false;
-  }
+  } 
+
+ 
 }

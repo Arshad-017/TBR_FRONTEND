@@ -53,7 +53,9 @@ export class UpdateViewDetailsComponent implements OnInit {
     this.router.navigateByUrl("addUpadte/update");
   }
 
-
+  backtoSearchParentMatches(){
+    this.router.navigateByUrl("addUpadte/updateParentMatches");
+  }
   updateEmployee() {
     this.updateForm.controls['emp_id'].enable();
     this.updateForm.controls['gender'].enable();

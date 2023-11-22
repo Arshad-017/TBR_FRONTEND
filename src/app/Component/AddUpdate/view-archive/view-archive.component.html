@@ -1,5 +1,5 @@
 <div class="back-ground">
-    <h1 class="remove-css">TBR Employees Details</h1>
+    <h1 class="remove-css">TBR Archived Employees Details</h1>
     <hr size="4" />
     <div *ngIf="!showViewMatchesDiv" class="container">
         <div class="items1"> <img class="image-css" src="../../../../assets/nodatafound.jpeg" alt=""></div>
@@ -9,8 +9,7 @@
         </div>
 
     </div>
-     <div *ngIf="showViewMatchesDiv">
-
+    <div *ngIf="showViewMatchesDiv">
         <div *ngIf="false" class="pagination" >
             <div *ngFor="let emp of tbrEmployee;let i=index">
                 <span *ngIf="i==stPgIndex"><a (click)="reindexBackPagination(stPgIndex)">&laquo;</a></span>
@@ -66,10 +65,10 @@
                             <img *ngIf="emp.gender==FEMALE"  src="../../../../assets/EmployeeFemale.png" class="sizing" alt="Fissure in Sandstone"/>
                             <div class="card-body font-mixing">
                               <h4 >{{emp.first_name}} {{emp.last_name}}</h4>
-                              <p >Age : {{emp.age}}</p>
-                              <p >Job Title :{{emp.job_title}}</p>
-                              <p >Experience : {{emp.years_of_experience}}</p>
-                              <h4>{{emp.emp_id}}</h4>
+                              <h4>Employee Id : {{emp.emp_id}}</h4>
+                              <p >Job Title Was :{{emp.job_title}}</p>
+                              <p >Reason For Archiving : {{emp.Comments}}</p>
+                             
         
                             </div>
                           </div>
@@ -82,5 +81,5 @@
           
            
             <br>
-     </div>
+    </div>
 </div>

@@ -63,4 +63,7 @@ export class DeleteViewDetailsComponent implements OnInit {
     }
     return false;
   }
+  backtoSearchParentMatches(){ 
+    this.router.navigateByUrl("addUpadte/deleteParentMatches")
+  }
 }

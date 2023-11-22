@@ -18,8 +18,12 @@ export class HeaderComponent implements OnInit{
   }
 
   logout(){
-    sessionStorage.clear();
-    this.router.navigate(['/login']);
+    let islogout = confirm("Are you sure want to Log-Out..")
+    if(islogout){
+      sessionStorage.clear();
+      this.router.navigate(['/login']);
+    }
+    
   }
 
 

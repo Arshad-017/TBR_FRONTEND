@@ -26,6 +26,7 @@ export class SearchParentMatchesComponent implements OnInit {
 
   }
    ngOnInit() {
+   
     this.searchReq = sessionStorage.getItem("searchForm");
     this.searchReq = JSON.parse(this.searchReq);
     //this.searchReq = await this.sharedService.getRequestDataInSession();
@@ -34,6 +35,7 @@ export class SearchParentMatchesComponent implements OnInit {
       this.totalRecords = data.records_count;
       if (this.totalRecords >= 1) {
         this.showParentMatchesDiv = true
+        sessionStorage.setItem("searchRespData" ,JSON.stringify(this.searchRespData));
 
       } else {
         this.showParentMatchesDiv = false;

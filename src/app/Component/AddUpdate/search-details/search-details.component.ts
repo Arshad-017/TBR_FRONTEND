@@ -31,6 +31,10 @@ export class SearchDetailsComponent implements OnInit{
    this.router.navigate(['addUpadte/search'])
   }
 
+  backtoSearchParentMatches(){
+    this.router.navigateByUrl("addUpadte/searchParentMatches")
+  }
+
 
 
 

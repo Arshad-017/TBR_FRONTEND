@@ -34,6 +34,7 @@ import { DeleteViewDetailsComponent } from './Component/AddUpdate/delete-view-de
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaginationComponent } from './pagination/pagination.component';
 import { TestheaderComponent } from './testheader/testheader.component';
+import { ViewArchiveComponent } from './Component/AddUpdate/view-archive/view-archive.component';
 
 
 
@@ -66,6 +67,7 @@ import { TestheaderComponent } from './testheader/testheader.component';
     DeleteViewDetailsComponent,
     PaginationComponent,
     TestheaderComponent,
+    ViewArchiveComponent,
    
    
     
