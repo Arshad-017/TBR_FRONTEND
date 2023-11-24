@@ -1,4 +1,4 @@
 export const environment = {
 
-    coreServiceUrl : "http://localhost:3000"
+    coreServiceUrl : "https://backendservicestbr.azurewebsites.net"
 };
